@@ -71,7 +71,7 @@ declinio_sku/
 
 ## Metodologia
 
-### Definição do Evento de Declínio 
+### Definição do Evento de Declínio (v3)
 ```
 sinal_declinio = (
     receita < 20% do pico histórico     AND
