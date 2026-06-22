@@ -1,5 +1,3 @@
-
-```markdown
 # Desafio Declínio de SKU 
 
 ## Visão Geral
@@ -26,24 +24,22 @@ O projeto responde a duas perguntas de negócio:
 
 ## Estrutura do Repositório
 
-```
-desafio-declinio-sku/
-├── data/                        # Dados (não versionados)
-│   └── base-de-dados.csv
-├── notebooks/
-│   ├── 01_analise_exploratoria.ipynb          # Diagnóstico de negócio
-│   ├── 02_modelo_gradient_boosting_survival.ipynb  # Modelo: evento declínio estrutural
-│   ├── 03_modelo_gbs_ativo_inativo.ipynb      # Modelo: evento ativo → inativo
-│   ├── 04_modelo_gbs_evento_picos.ipynb       # Modelo final + proteção de margem + ROI
-│   └── 05_comparacao_modelos.ipynb            # Comparação: Cox PH vs RSF vs GBS
-├── src/
-│   └── modelagem_preditiva.py
-├── models/
-├── reports/figures/
-├── requirements.txt
-├── .gitignore
-└── README.md
-```
+    desafio-declinio-sku/
+    ├── data/                        # Dados (não versionados)
+    │   └── base-de-dados.csv
+    ├── notebooks/
+    │   ├── 01_analise_exploratoria.ipynb
+    │   ├── 02_modelo_gradient_boosting_survival.ipynb
+    │   ├── 03_modelo_gbs_ativo_inativo.ipynb
+    │   ├── 04_modelo_gbs_evento_picos.ipynb
+    │   └── 05_comparacao_modelos.ipynb
+    ├── src/
+    │   └── modelagem_preditiva.py
+    ├── models/
+    ├── reports/figures/
+    ├── requirements.txt
+    ├── .gitignore
+    └── README.md
 
 ---
 
@@ -70,18 +66,16 @@ Análise exploratória que identificou os padrões que antecedem o declínio:
 - Previsão **condicional**: dado que o produto está vivo hoje, qual a chance de declinar nos próximos 25 ciclos?
 
 **Definição do Evento de Declínio:**
-```
-Um SKU entra em declínio quando simultaneamente:
-  1. Receita cai abaixo de 20% do pico histórico
-  2. Não renova o pico há 15+ ciclos
-  3. Base de PDVs está encolhendo (diff < 0)
-  4. Esses sinais persistem por pelo menos 4 ciclos consecutivos
-```
+
+> Um SKU entra em declínio quando simultaneamente:
+> 1. Receita cai abaixo de 20% do pico histórico
+> 2. Não renova o pico há 15+ ciclos
+> 3. Base de PDVs está encolhendo (diff < 0)
+> 4. Esses sinais persistem por pelo menos 4 ciclos consecutivos
 
 **Previsão Condicional:**
-```
-P(declinar nos próximos 25 ciclos | vivo hoje) = 1 - S(t+25) / S(t)
-```
+
+> P(declinar nos próximos 25 ciclos | vivo hoje) = 1 - S(t+25) / S(t)
 
 **Features selecionadas (~30):**
 
@@ -150,11 +144,10 @@ O modelo identifica SKUs condenados que ainda recebem investimento em marketing 
 4. Executar todas as células em sequência
 
 ### Local
-```bash
-git clone https://github.com/gustavojotar/desafio-declinio-sku.git
-cd desafio-declinio-sku
-pip install -r requirements.txt
-```
+
+    git clone https://github.com/gustavojotar/desafio-declinio-sku.git
+    cd desafio-declinio-sku
+    pip install -r requirements.txt
 
 ---
 
@@ -190,6 +183,8 @@ O declínio de um SKU **não é um evento súbito** — ele segue um padrão pre
 
 **Gustavo** — [@gustavojotar](https://github.com/gustavojotar)
 
+---
 
-```
+## Licença
 
+Este projeto é de uso público para fins educacionais e profissionais.
